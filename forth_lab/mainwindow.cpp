@@ -33,7 +33,7 @@ void MainWindow::on_Button_clicked()
     newi = 0;
     newj = 0;
     num = 0;
-    for(z = 0; z < 10000; z++){
+    for(z = 0; z < 1000; z++){
         k = randomBetween(1,4);
         //1 - шаг вверх
         //2 - шаг вправо
@@ -71,12 +71,20 @@ void MainWindow::on_Button_clicked()
             j = newj;
         }
     }
-    ui->textEdit->append(QString("Сторона поля = 7   Кол-во перегородок = %1\n").arg(num));
-    for(z = 0; z < 100; z++){
-        if(mass[z].x != 0 && mass[z].y != 0 && mass[z].x < 50 && mass[z].y < 50)
-            ui->textEdit->append(QString("%1  %2\n").arg(mass[z].x).arg(mass[z].y));
-    }
-    for(i = 0; i < 7; i++){
-        ui->textEdit->append(QString("%1 %2 %3 %4 %5 %6 %7").arg(field[i][0]).arg(field[i][1]).arg(field[i][2]).arg(field[i][3]).arg(field[i][4]).arg(field[i][5]).arg(field[i][6]));
+    z = 1;
+    for (i = 0; i < 7; i++){
+        for(j = 0; j < 7; j++){
+            if(field[i][j] == 0) z = 0;
         }
+    }
+    if(z == 1){
+        ui->textEdit->append(QString("Сторона поля = 7   Кол-во перегородок = %1\n").arg(num));
+        for(z = 0; z < 100; z++){
+            if(mass[z].x != 0 && mass[z].y != 0 && mass[z].x < 50 && mass[z].y < 50)
+                ui->textEdit->append(QString("%1  %2\n").arg(mass[z].x).arg(mass[z].y));
+        }
+        for(i = 0; i < 7; i++){
+            ui->textEdit->append(QString("%1 %2 %3 %4 %5 %6 %7").arg(field[i][0]).arg(field[i][1]).arg(field[i][2]).arg(field[i][3]).arg(field[i][4]).arg(field[i][5]).arg(field[i][6]));
+        }
+    } else on_Button_clicked();
 }
