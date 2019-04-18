@@ -11,7 +11,5 @@ struct vect
 
 int randomBetween(int low, int high);
 int countNumber(int i, int j);
-int massSort(vect mass[100]);
-void runLeftStuff(vect mass[100], int field[7][7]);
-
+int checkIfExist(int x, int y, vect mass[100], int z);
 #endif // FUNCTIONS_H

@@ -66,7 +66,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        Button->setText(QApplication::translate("MainWindow", "generate some shit", nullptr));
+        Button->setText(QApplication::translate("MainWindow", "generate", nullptr));
     } // retranslateUi
 
 };
